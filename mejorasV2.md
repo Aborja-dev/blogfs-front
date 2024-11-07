@@ -16,7 +16,6 @@ si no encuentra el token redirigir a login
 si encuentra token cargar lista del usuario
 # atomic design
 refactorizar componentes en atomic design
-cambiar tailwind por cssmodules/styled components
 # refactorizar contenedor/componente
 usar el patron container/component para separar la logica de la parte visual
 # notificaciones
@@ -28,3 +27,4 @@ las notificaciones seran
     * eliminacion de blog
 # manejo de errores 
 * crear un manejador de errores para las peticiones
+# adicional(refactorizar al componente de dropdown)
