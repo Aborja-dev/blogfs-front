@@ -2,30 +2,29 @@ import { Button, Field, Fieldset, Input, Label, Legend } from '@headlessui/react
 import clsx from 'clsx'
 import { useState } from 'react'
 import Loader from '../../assets/loader.svg'
-interface SubmitFormData {
-    username: string
-    password: string
-}
-export function LoginForm({ onSubmit, status }: {
-    onSubmit: (data: SubmitFormData) => void,
+import { CreateBlogFormData } from '../../schema/formTypes'
+
+export function CreateBlogForm({ onSubmit, status }: {
+    onSubmit: (data: CreateBlogFormData) => void,
     status: string
 }) {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [author, setAuthor] = useState('')
+    const [title, setTitle] = useState('')
+    const [url, setUrl] = useState('')
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        onSubmit({ username, password })
+        onSubmit({ author, title, url })
     }
     return (
         <div className="w-full max-w-lg px-4">
             <form onSubmit={handleSubmit} >
                 <Fieldset className="space-y-6 rounded-xl bg-blue-900/50 p-6 sm:p-10">
-                    <Legend className=" font-semibold text-white text-2xl">Log in</Legend>
+                    <Legend className=" font-semibold text-white text-2xl">Crear nuevo blog</Legend>
                     <Field>
-                        <Label className="text-sm/6 font-medium text-white">Username</Label>
+                        <Label className="text-sm/6 font-medium text-white">Titulo</Label>
                         <Input
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
                             className={clsx(
                                 'mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white',
                                 'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
@@ -33,10 +32,21 @@ export function LoginForm({ onSubmit, status }: {
                         />
                     </Field>
                     <Field>
-                        <Label className="text-sm/6 font-medium text-white">Password</Label>
+                        <Label className="text-sm/6 font-medium text-white">Autor</Label>
                         <Input
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={author}
+                            onChange={(e) => setAuthor(e.target.value)}
+                            className={clsx(
+                                'mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white',
+                                'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
+                            )}
+                        />
+                    </Field>
+                    <Field>
+                        <Label className="text-sm/6 font-medium text-white">Url</Label>
+                        <Input
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
                             className={clsx(
                                 'mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white',
                                 'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
@@ -52,7 +62,7 @@ export function LoginForm({ onSubmit, status }: {
                                     </figure>
                                 )
                             }
-                            Log in
+                            Crear Nuevo Blog
                         </span>
                     </Button>
                 </Fieldset>

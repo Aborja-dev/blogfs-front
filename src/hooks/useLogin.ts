@@ -1,14 +1,33 @@
-import { useState } from "react";
-const STATES = ['DEFAULT', 'LOADING', 'SUCCESS', 'ERROR']
+import { useEffect, useState } from "react";
+import { Login } from "../service/api-gateway";
+type stateType = 'DEFAULT' | 'LOADING' | 'SUCCESS' | 'ERROR' | 'EXPIRED' | 'LOGGED'
 export const useLogin = () => {
-    const [state, setState] = useState(STATES[0])
-    const login = (data: { username: string; password: string }) => {
-        setState(STATES[1])
-        setTimeout(() => {
-            setState(STATES[2])
-            console.log(data);
-            
+    useEffect(() => checkSesion(), [])
+    const [state, setState] = useState<stateType>('DEFAULT')
+    const login = async(data: { username: string; password: string }) => {
+        const {token, blogs} = await Login(data)
+        setState('LOADING')
+        setTimeout(async () => {
+            setState('LOGGED')
+            saveToken(token)
         }, 1000);
+        return blogs
     }
-    return { login, state }
+    const checkSesion = () => {
+        const token = window.localStorage.getItem('token')
+        if (token) {
+            setState('LOGGED')
+        }
+        else {
+            setState('DEFAULT')
+        }
+    }
+    const logout = () => {
+        window.localStorage.removeItem('token')
+        setState('DEFAULT')
+    }
+    const saveToken = (token: string) => {
+        window.localStorage.setItem('token', token)
+    }
+    return { login, state, logout }
 }
