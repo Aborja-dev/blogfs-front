@@ -5,10 +5,11 @@ export const useLogin = () => {
     useEffect(() => checkSesion(), [])
     const [state, setState] = useState<stateType>('DEFAULT')
     const login = async(data: { username: string; password: string }) => {
-        const {token, blogs} = await Login(data)
+        const {token, blogs, id} = await Login(data)
         setState('LOADING')
         setTimeout(async () => {
             setState('LOGGED')
+            window.localStorage.setItem('userID', id.toString())
             saveToken(token)
         }, 1000);
         return blogs

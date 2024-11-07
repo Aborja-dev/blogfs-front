@@ -9,4 +9,5 @@ export interface Sesion {
     token: string
     name: string
     blogs: Blog[]
+    id: string
 }

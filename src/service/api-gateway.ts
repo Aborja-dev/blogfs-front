@@ -10,7 +10,11 @@ export const Login = async ({username, password}: {username: string, password: s
         blogs: data.blogs.map(blogMapper)
     }
 }
-
+export const getBlogs = async (userID: string): Promise<Blog[]> => {
+    const token = getToken()
+    const {data} = await axios.get(`${baseUrl}/blogs/${userID}`, {headers: {Authorization: `bearer ${token}`}})
+    return data.map(blogMapper)
+}
 export const CreateNewBlog = async ({title, author, url}: CreateBlogFormData): Promise<Blog> => {
     const token = getToken()
     const {data} = await axios.post(`${baseUrl}/blogs`, {title, author, url}, {headers: {Authorization: `bearer ${token}`}})
@@ -41,6 +45,6 @@ const blogMapper = (blogFromAPi: {
     likes: blogFromAPi.likes
 })
 
-const getToken = () => {
+export const getToken = () => {
     return window.localStorage.getItem('token')
 }

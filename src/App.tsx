@@ -1,6 +1,6 @@
 
 import Main from './layout/Main'
-import LoginPage from './pages/LoginPage'
+import LoginPage from './pages/_LoginPage'
 
 function App() {
 

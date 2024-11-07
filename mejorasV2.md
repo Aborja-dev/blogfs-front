@@ -1,5 +1,8 @@
 # Router
 instalar react router
+crear las rutas de login y home
+crear el encapsulamiento
+crear el guard con el loader
 crear pagina de login y home
 # useContext/useReducer
 crear el reducer para manejar la lista de blogs
@@ -28,3 +31,4 @@ las notificaciones seran
 # manejo de errores 
 * crear un manejador de errores para las peticiones
 # adicional(refactorizar al componente de dropdown)
+# adicional refactorizar a axiosRequest
