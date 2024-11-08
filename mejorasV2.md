@@ -5,18 +5,18 @@
 ✔ crear el guard con el loader
 ✔ crear pagina de login y home
 # useContext/useReducer
-crear el reducer para manejar la lista de blogs
-crear el hook useResource para manejar el estado de esta y otros recursos similares
+✔ crear el reducer para manejar la lista de blogs
+✔ crear el hook useResource para manejar el estado de esta y otros recursos similares
 crear el servicio con las siguientes acciones
-* cargar la lista de blogs
-* crear nuevo blog
-* eliminar blog
-* actualizar likes
+* ✔ cargar la lista de blogs
+* ✔ crear nuevo blog
+* ✔ eliminar blog
+* ✔ actualizar likes
 *cada una de las funciones debe de actualizar la lista*
 # loader
-refactorizar la carga en un loader
-si no encuentra el token redirigir a login
-si encuentra token cargar lista del usuario
+✔ refactorizar la carga en un loader
+✔ si no encuentra el token redirigir a login
+✔ si encuentra token cargar lista del usuario
 # atomic design
 refactorizar componentes en atomic design
 # refactorizar contenedor/componente

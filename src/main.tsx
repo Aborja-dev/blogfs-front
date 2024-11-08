@@ -5,11 +5,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { router } from './router';
+import { ContextSesionProvider } from './context/Sesion/Provider';
 
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <ContextSesionProvider>
     <RouterProvider router={router} />
+    </ContextSesionProvider>
   </StrictMode>,
 )
