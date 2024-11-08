@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Blog, Sesion } from "../schema/types";
 import { CreateBlogFormData } from "../schema/formTypes";
+import { getToken } from "../helpers/utils";
 const baseUrl =  'http://localhost:3003/api'
 
 export const Login = async ({username, password}: {username: string, password: string}): Promise<Sesion> => {
@@ -45,6 +46,3 @@ const blogMapper = (blogFromAPi: {
     likes: blogFromAPi.likes
 })
 
-export const getToken = () => {
-    return window.localStorage.getItem('token')
-}

@@ -1,9 +1,9 @@
 # Router
-instalar react router
-crear las rutas de login y home
-crear el encapsulamiento
-crear el guard con el loader
-crear pagina de login y home
+✔ instalar react router
+✔ rear las rutas de login y home
+✔ crear el encapsulamiento
+✔ crear el guard con el loader
+✔ crear pagina de login y home
 # useContext/useReducer
 crear el reducer para manejar la lista de blogs
 crear el hook useResource para manejar el estado de esta y otros recursos similares

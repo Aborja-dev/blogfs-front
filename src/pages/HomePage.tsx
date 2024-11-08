@@ -15,12 +15,11 @@ const HomePage = () => {
     const fetchBlogs = async () => {
         const userID = window.localStorage.getItem('userID')?.toString()
         console.log(userID);
-
         const blogs = await getBlogs(userID!)
         setBlogs(blogs)
     }
     return (
-        <div className='w-4/5 grid grid-cols-3 gap-4'>
+        <div className='w-full grid grid-cols-3 gap-4'>
             {
                 blogs.map(blog => <BlogCard key={blog.id} {...blog} />)
             }
