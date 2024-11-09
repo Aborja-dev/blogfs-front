@@ -2,6 +2,7 @@ import { useReducer } from "react"
 import { PrivateResource } from "../service/api-resource"
 import { ResourceReducer } from "../service/reducer"
 import { Blog } from "../schema/types"
+import { toast } from "react-toastify"
 
 const request = new PrivateResource<Blog>('http://localhost:3003/api/blogs')
 
@@ -15,11 +16,13 @@ export const useResource = () => {
     const add = async (blog: Blog) => {
         const response = await request.create(blog)
         const action = {type: 'ADD', payload: response}
+        toast.info(`Blog ${blog.title} creado con exito`, {position: 'top-right'})
         dispatch(action)
     }
     const remove =async (id: string) => {
         await request.remove(id)
         const action = {type: 'DELETE', payload: id}
+        toast.info('Borrado con exito', {position: 'top-right'})
         dispatch(action)
     }
     const update = async (id: string, data: Blog) => {

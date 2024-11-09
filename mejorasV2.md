@@ -20,15 +20,16 @@ crear el servicio con las siguientes acciones
 # atomic design
 ✔ refactorizar componentes en atomic design
 # refactorizar contenedor/componente
-usar el patron container/component para separar la logica de la parte visual
+✔ usar el patron container/component para separar la logica de la parte visual
 # notificaciones
-* instalar una libreria de notificaciones
+* ✔ instalar una libreria de notificaciones
 * usar un loader que indique que esta cargando
 las notificaciones seran
-    * login incorrecto/correcto
-    * creacion de nuevo blog
-    * eliminacion de blog
+    * ✔ login incorrecto/correcto
+    * ✔ creacion de nuevo blog
+    * ✔ eliminacion de blog
 # manejo de errores 
 * crear un manejador de errores para las peticiones
 # adicional(refactorizar al componente de dropdown)
 # adicional refactorizar a axiosRequest
+# tiparlo correctamente
