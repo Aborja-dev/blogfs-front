@@ -29,3 +29,5 @@ export const useResource = () => {
     }
     return { state: state as Blog[], update, load, add, remove }
 }
+
+export const delay = (time: number) => new Promise(resolve => setTimeout(resolve, time))

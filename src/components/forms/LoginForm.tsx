@@ -1,7 +1,8 @@
-import { Button, Field, Fieldset, Input, Label, Legend } from '@headlessui/react'
-import clsx from 'clsx'
 import { useState } from 'react'
 import Loader from '../../assets/loader.svg'
+import FieldComponent from '../../ui/Field'
+import FormCard from '../../ui/cards/FormCard'
+import ButtonComponent from '../../ui/Button'
 interface SubmitFormData {
     username: string
     password: string
@@ -17,6 +18,26 @@ export function LoginForm({ onSubmit, status }: {
         onSubmit({ username, password })
     }
     return (
+        <FormCard title="Log in">
+            <form onSubmit={handleSubmit} className='flex flex-col gap-4' >
+                <FieldComponent value={username} label="Username" setValue={setUsername} />
+                <FieldComponent value={password} label="Password" setValue={setPassword} />
+                <ButtonComponent status={status} onClick={() => onSubmit({ username, password })}>
+                    <span className="flex items-center justify-center gap-2">
+                        {
+                            status == 'LOADING' && (
+                                <figure className='w-4'>
+                                    <img src={Loader} alt="" />
+                                </figure>
+                            )
+                        }
+                        Log in
+                    </span>
+                </ButtonComponent>
+            </form>
+        </FormCard>
+    )
+    /* return (
         <div className="w-full max-w-lg px-4">
             <form onSubmit={handleSubmit} >
                 <Fieldset className="space-y-6 rounded-xl bg-blue-900/50 p-6 sm:p-10">
@@ -58,5 +79,5 @@ export function LoginForm({ onSubmit, status }: {
                 </Fieldset>
             </form>
         </div>
-    )
+    ) */
 }

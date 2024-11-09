@@ -18,11 +18,11 @@ crear el servicio con las siguientes acciones
 ✔ si no encuentra el token redirigir a login
 ✔ si encuentra token cargar lista del usuario
 # atomic design
-refactorizar componentes en atomic design
+✔ refactorizar componentes en atomic design
 # refactorizar contenedor/componente
 usar el patron container/component para separar la logica de la parte visual
 # notificaciones
-* intalar una libreria de notificaciones
+* instalar una libreria de notificaciones
 * usar un loader que indique que esta cargando
 las notificaciones seran
     * login incorrecto/correcto
