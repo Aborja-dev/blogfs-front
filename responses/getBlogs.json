@@ -1,0 +1,27 @@
+{
+    "blogs": [
+        {
+          "id": "67330d75ced89b40a8cf14ad",
+          "title": "vue",
+          "author": "sadasd",
+          "url": "xzczxc",
+          "likes": null,
+          "user": "6729b3af9ebb6007c3cf96e5"
+        },
+        {
+          "id": "6733179f93973be590040cec",
+          "title": "CuriousExplorer21",
+          "author": "Expl0r3r@2024",
+          "url": "xzczxc",
+          "likes": null,
+          "user": "6729b3af9ebb6007c3cf96e5"
+        },
+        {
+          "id": "6733189793973be590040cfe",
+          "title": "CuriousExplorer21",
+          "author": "Expl0r3r@2024",
+          "url": "sadasd",
+          "user": "6729b3af9ebb6007c3cf96e5"
+        }
+      ]
+}
