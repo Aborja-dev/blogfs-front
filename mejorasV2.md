@@ -23,7 +23,7 @@ crear el servicio con las siguientes acciones
 ✔ usar el patron container/component para separar la logica de la parte visual
 # notificaciones
 * ✔ instalar una libreria de notificaciones
-* usar un loader que indique que esta cargando
+* ✔ usar un loader que indique que esta cargando
 las notificaciones seran
     * ✔ login incorrecto/correcto
     * ✔ creacion de nuevo blog

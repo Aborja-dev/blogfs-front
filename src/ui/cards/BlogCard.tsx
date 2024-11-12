@@ -17,7 +17,8 @@ export function BlogCard({
     date: string,
     image: string,
 }) {
-    const { blogs } = useContext(SesionContext)
+    const { blogs, loading } = useContext(SesionContext)
+    const [_, setLoading] = loading
     const { remove, update } = blogs
     const { title, author } = blog
     // const [isHovered, setIsHovered] = useState(false)
@@ -26,7 +27,9 @@ export function BlogCard({
         await update(blog.id, data)
     }
     const deleteHandler = async () => {
+        setLoading(true)
         await remove(blog.id)
+        setLoading(false)
     }
     return (
         <div
