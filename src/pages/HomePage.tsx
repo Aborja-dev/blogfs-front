@@ -4,7 +4,7 @@ import { SesionContext } from '../context/Sesion/context'
 import { Blog } from '../schema/types'
 import { BlogCard } from '../ui/cards/BlogCard'
 import { toast } from 'react-toastify'
-
+import bgImage from "../assets/bgCard.png";
 
 const HomePage = () => {
     const { blogs, loading } = useContext(SesionContext)
@@ -30,7 +30,7 @@ const HomePage = () => {
                     key={blog.id}  
                     blog={blog}
                     date='2024-01-01'
-                    image='https://picsum.photos/200/300'
+                    image={bgImage}
                     summary='lorem ipsum'
                 />)
             }

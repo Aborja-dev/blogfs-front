@@ -1,11 +1,11 @@
 import {  useReducer } from "react"
-import { PrivateResource } from "../service/api-resource"
+import { ApiResourceStub, PrivateResource } from "../service/api-resource"
 import { ResourceReducer } from "../service/reducer"
 import { Blog } from "../schema/types"
 import { toast } from "react-toastify"
 
-const request = new PrivateResource<Blog>('http://localhost:3003/api/blogs')
-
+const request = new ApiResourceStub<Blog>('http://localhost:3003/blogs')
+//const request = new PrivateResource<Blog>('http://localhost:3003/api/blogs')
 export const useResource = () => {
     const [state, dispatch] = useReducer(ResourceReducer, [])
     
