@@ -5,28 +5,22 @@
       "title": "vue",
       "author": "sadasd",
       "url": "xzczxc",
-      "likes": null,
-      "user": "6729b3af9ebb6007c3cf96e5"
-    },
-    {
-      "id": "6733179f93973be590040cec",
-      "title": "CuriousExplorer21",
-      "author": "Expl0r3r@2024",
-      "url": "xzczxc",
-      "likes": null,
+      "likes": 10,
       "user": "6729b3af9ebb6007c3cf96e5"
     },
     {
       "id": "5a91",
       "author": "Expl0r3r@2024",
       "title": "CuriousExplorer21",
+      "likes": 12,
       "url": "sadasd"
     },
     {
-      "id": "b294",
-      "author": "Expl0r3r@2024",
-      "title": "CuriousExplorer21",
-      "url": "sadasd"
+      "id": "b7b0",
+      "author": "asdasd",
+      "title": "w2qe",
+      "url": "CuriousExplorer21",
+      "likes": 4
     }
   ]
 }

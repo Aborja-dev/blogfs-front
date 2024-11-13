@@ -58,7 +58,7 @@ export class ApiResourceStub<T> {
         })
         return await response.data
     }
-    async create(data: T): Promise<T> {
+    async create<C>(data: C): Promise<T> {
         const response = await axios.post(this.url, data, {
             headers: this.configHeaders()
         })

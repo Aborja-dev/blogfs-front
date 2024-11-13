@@ -5,15 +5,17 @@ import { Button } from '@headlessui/react'
 import { useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 import { CreateBlogFormData } from '../../schema/formTypes'
+import { useBlogs } from '../../hooks/useBlogs'
 
 
 const CreatePage = () => {
-    const { blogs, loading } = useContext(SesionContext)
+    const {  loading } = useContext(SesionContext)
+    const { add } = useBlogs()
     const [_, setLoading] = loading
     const navigate = useNavigate()
     const addNewBlog = async (data: CreateBlogFormData) => {
         setLoading(true)
-        await blogs.add(data)
+        await add({ ...data, likes: 0 })
         setLoading(false)
         navigate(-1)
     }

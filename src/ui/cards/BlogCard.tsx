@@ -1,36 +1,28 @@
-import { useContext } from 'react'
+
 //import { Transition } from '@headlessui/react'
-import { Blog } from '../../schema/types'
-import { SesionContext } from '../../context/Sesion/context'
 import Title from '../typhography/Title'
 import Text from '../typhography/Text'
 import ButtonComponent from '../Button'
+import { IBlog } from '../../domain/schema/entities'
 
 export function BlogCard({
     blog,
     summary,
     date,
     image,
+    onDelete,
+    onLike 
 }: {
-    blog: Blog,
+    blog: IBlog,
     summary: string,
     date: string,
     image: string,
+    onDelete: (id: string) => void,
+    onLike: (id: string, data: IBlog) => void
 }) {
-    const { blogs, loading } = useContext(SesionContext)
-    const [_, setLoading] = loading
-    const { remove, update } = blogs
     const { title, author } = blog
     // const [isHovered, setIsHovered] = useState(false)
-    const likeHandler = async () => {
-        const data = { ...blog, likes: blog.likes + 1 }
-        await update(blog.id, data)
-    }
-    const deleteHandler = async () => {
-        setLoading(true)
-        await remove(blog.id)
-        setLoading(false)
-    }
+
     return (
         <div
             className="w-full max-w-md overflow-hidden bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
@@ -46,7 +38,7 @@ export function BlogCard({
                     <Text className='text-gray-500'>Sent on: {date}</Text>
                     <ButtonComponent.Outline
                         className='text-blue-500'
-                        onClick={likeHandler}
+                        onClick={() => onLike(blog.id, { ...blog, likes: blog.likes + 1 })}
                     >
                         Like
                     </ButtonComponent.Outline>
@@ -55,7 +47,7 @@ export function BlogCard({
             </div>
             <div className="p-6 bg-gray-100 flex items-center">
                 <ButtonComponent
-                    onClick={deleteHandler}
+                    onClick={() => onDelete(blog.id)}
                     className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-200"
                 >
                     Delete
@@ -79,7 +71,7 @@ export function BlogCard({
 }
 
 BlogCard.Image = ({ src, alt }: { src: string; alt: string }) => (
-    <div className="relative h-28">
+    <div className="relative h-48">
         <img
             src={src}
             alt={alt}

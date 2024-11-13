@@ -1,2 +1,3 @@
 import { createContext } from "react"
-export const SesionContext = createContext<any>({})
+import { ForContext } from "../../domain/schema/types"
+export const SesionContext = createContext<any>({} as never)
