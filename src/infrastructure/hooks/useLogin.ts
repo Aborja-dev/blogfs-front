@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Login } from "../service/api-gateway";
+import { Login } from "../../service/api-gateway";
+
 type stateType = 'DEFAULT' | 'LOADING' | 'SUCCESS' | 'ERROR' | 'EXPIRED' | 'LOGGED'
 export const useLogin = () => {
     useEffect(() => checkSesion(), [])

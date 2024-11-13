@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { useLogin } from '../../hooks/useLogin';
-import { useResource } from '../../hooks/useResource';
+
+
 import { SesionContext } from './context';
+import { useLogin } from '../../infrastructure/hooks/useLogin';
+import { useResource } from '../../infrastructure/hooks/useResource';
 export const ContextSesionProvider = ({ children }: {children: React.ReactNode}) => {
     const sesion = useLogin()
     const blogs = useResource()

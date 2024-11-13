@@ -1,8 +1,8 @@
 import { useContext } from "react"
-import { GlobalContext } from "../context/global/context"
-import { ApiResourceStub } from "../service/api-resource"
-import { IBlog } from "../domain/schema/entities"
-import { IAction } from "../domain/schema/types"
+import { GlobalContext } from "../../context/global/context"
+import { ApiResourceStub } from "../../domain/clases/api-resource"
+import { IBlog } from "../../domain/schema/entities"
+import { IAction } from "../../domain/schema/types"
 const request = new ApiResourceStub<IBlog>('http://localhost:3003/blogs')
 export const useBlogs = () => {
     const context = useContext(GlobalContext)

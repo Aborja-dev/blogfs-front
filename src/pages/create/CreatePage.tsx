@@ -1,22 +1,19 @@
-import { useContext } from 'react'
 import { CreateBlogForm } from '../../components/forms/CreateBlog'
-import { SesionContext } from '../../context/Sesion/context'
 import { Button } from '@headlessui/react'
 import { useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 import { CreateBlogFormData } from '../../schema/formTypes'
-import { useBlogs } from '../../hooks/useBlogs'
+import { useLoading } from '../../infrastructure/hooks/useNotification'
+import { useBlogs } from '../../infrastructure/hooks/useBlogs'
+
 
 
 const CreatePage = () => {
-    const {  loading } = useContext(SesionContext)
+    const {loading} = useLoading()
     const { add } = useBlogs()
-    const [_, setLoading] = loading
     const navigate = useNavigate()
     const addNewBlog = async (data: CreateBlogFormData) => {
-        setLoading(true)
-        await add({ ...data, likes: 0 })
-        setLoading(false)
+        await loading(async () => {await add({ ...data, likes: 0 })})
         navigate(-1)
     }
     return (

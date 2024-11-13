@@ -1,7 +1,9 @@
 import { LoginForm } from '../components/forms/LoginForm'
-import { useLogin } from '../hooks/useLogin'
+
 import { useNavigate } from 'react-router-dom'
-import { useLoading } from '../hooks/useNotification'
+import { useLoading } from '../infrastructure/hooks/useNotification'
+import { useLogin } from '../infrastructure/hooks/useLogin'
+
 
 const LoginPage = () => {
   const navigate = useNavigate()

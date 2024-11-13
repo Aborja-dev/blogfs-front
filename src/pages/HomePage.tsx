@@ -3,14 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import { Blog } from '../schema/types'
 import { BlogCard } from '../ui/cards/BlogCard'
 import bgImage from "../assets/bgCard.png";
-import { useBlogs } from '../hooks/useBlogs'
+
 import { IBlog } from '../domain/schema/entities'
-import { useLoading } from '../hooks/useNotification'
+import { useLoading } from '../infrastructure/hooks/useNotification';
+import { useBlogs } from '../infrastructure/hooks/useBlogs';
+
 
 
 const HomePage = () => {
     const { loading, success } = useLoading()
-    //const { load, state: _blogs } = blogs
     const { blogs, load, remove, like } = useBlogs()
     const navigate = useNavigate()
     useEffect(() => {

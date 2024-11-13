@@ -1,13 +1,14 @@
-import {  useReducer } from "react"
-import { ApiResourceStub, PrivateResource } from "../service/api-resource"
-import { ResourceReducer } from "../service/reducer"
-import { Blog } from "../schema/types"
+import { useReducer } from "react"
 import { toast } from "react-toastify"
+import { ApiResourceStub } from "../../domain/clases/api-resource"
+import { Blog } from "../../schema/types"
+import { blogsReducer } from "../../domain/reducer/resourceReducer"
+
 
 const request = new ApiResourceStub<Blog>('http://localhost:3003/blogs')
 //const request = new PrivateResource<Blog>('http://localhost:3003/api/blogs')
 export const useResource = () => {
-    const [state, dispatch] = useReducer(ResourceReducer, [])
+    const [state, dispatch] = useReducer(blogsReducer, [])
     
     const load = async (id: string) => {
         const blogs = await request.getAll(id)

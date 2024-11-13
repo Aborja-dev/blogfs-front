@@ -1,27 +1,29 @@
 import axios from "axios";
-import { Blog, Sesion } from "../schema/types";
-import { CreateBlogFormData } from "../schema/formTypes";
-import { getToken } from "../helpers/utils";
+
+import { getToken } from "../domain/helpers/utils";
+import { IBlog, ISesion } from "../domain/schema/entities";
+import { FCreateBlog } from "../domain/schema/formTypes";
+
 const baseUrl =  'http://localhost:3003/api'
 
-export const Login = async ({username, password}: {username: string, password: string}): Promise<Sesion> => {
+export const Login = async ({username, password}: {username: string, password: string}): Promise<ISesion> => {
     const {data} = await axios.post(`${baseUrl}/users/login`, {username, password})
     return {
         ...data,
         blogs: data.blogs.map(blogMapper)
     }
 }
-export const getBlogs = async (userID: string): Promise<Blog[]> => {
+export const getBlogs = async (userID: string): Promise<IBlog[]> => {
     const token = getToken()
     const {data} = await axios.get(`${baseUrl}/blogs/${userID}`, {headers: {Authorization: `bearer ${token}`}})
     return data.map(blogMapper)
 }
-export const CreateNewBlog = async ({title, author, url}: CreateBlogFormData): Promise<Blog> => {
+export const CreateNewBlog = async ({title, author, url}: FCreateBlog): Promise<IBlog> => {
     const token = getToken()
     const {data} = await axios.post(`${baseUrl}/blogs`, {title, author, url}, {headers: {Authorization: `bearer ${token}`}})
     return blogMapper(data)
 }
-export const updateVotes = async (blog: Blog): Promise<Blog> => {
+export const updateVotes = async (blog: IBlog): Promise<IBlog> => {
     const token = getToken()
     const {data} = await axios.put(`${baseUrl}/blogs/${blog.id}`, {likes: blog.likes + 1}, {headers: {Authorization: `bearer ${token}`}})
     return blogMapper(data)
