@@ -5,8 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
   RouterProvider,
 } from "react-router-dom";
-import { router } from './router';
-import { ContextSesionProvider } from './context/Sesion/Provider';
+import { router } from './router'; 
 import GlobalProvider from './context/global/Provider';
 
 
@@ -14,9 +13,9 @@ import GlobalProvider from './context/global/Provider';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <GlobalProvider>
-    <ContextSesionProvider>
-    <RouterProvider router={router} />
-    </ContextSesionProvider>
+
+      <RouterProvider router={router} />
+
     </GlobalProvider>
   </StrictMode>,
 )

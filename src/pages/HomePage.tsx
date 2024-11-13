@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Blog } from '../schema/types'
 import { BlogCard } from '../ui/cards/BlogCard'
 import bgImage from "../assets/bgCard.png";
-
 import { IBlog } from '../domain/schema/entities'
 import { useLoading } from '../infrastructure/hooks/useNotification';
 import { useBlogs } from '../infrastructure/hooks/useBlogs';
@@ -37,7 +35,7 @@ const HomePage = () => {
     return (
         <div className='w-full grid grid-cols-3 gap-4'>
             {
-                (blogs as Blog[]).map(blog =>
+                (blogs as IBlog[]).map(blog =>
                     <BlogCard
                         key={blog.id}
                         blog={blog}

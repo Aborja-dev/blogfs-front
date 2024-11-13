@@ -1,8 +1,8 @@
 
 import React from 'react'
 import Header from '../../ui/Header'
-import Loading from '../../components/Loading'
 import { ToastContainer } from 'react-toastify'
+import Loading from '../../infrastructure/components/Loading'
 const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <main className='w-full min-h-screen bg-gradient-to-bl from-blue-950 to-blue-400'>

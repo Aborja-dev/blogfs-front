@@ -1,7 +1,8 @@
 import { useContext } from "react"
 import { toast } from "react-toastify"
 import { GlobalContext } from "../../context/global/context"
-import { delay } from "./useResource"
+import { delay } from "../../domain/helpers/utils"
+
 
 
 export const useLoading = () => {

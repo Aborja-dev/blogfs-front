@@ -1,6 +1,7 @@
 import React from 'react'
-import logo from './../assets/react.svg'
-import { useLoading } from '../infrastructure/hooks/useNotification';
+import logo from '../../assets/react.svg'
+import { useLoading } from '../hooks/useNotification';
+
 
 const Loading = ({ children }: { children: React.ReactNode }) => {
     const { isLoading } = useLoading()

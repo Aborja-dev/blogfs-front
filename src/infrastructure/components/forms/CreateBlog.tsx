@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { CreateBlogFormData } from '../../schema/formTypes'
-import FormCard from '../../ui/cards/FormCard'
-import FieldComponent from '../../ui/Field'
-import ButtonComponent from '../../ui/Button'
+import ButtonComponent from '../../../ui/Button'
+import FormCard from '../../../ui/cards/FormCard'
+import FieldComponent from '../../../ui/Field'
+import { FCreateBlog } from '../../../domain/schema/formTypes'
+
 
 export function CreateBlogForm({ onSubmit }: {
-    onSubmit: (data: CreateBlogFormData) => void,
+    onSubmit: (data: FCreateBlog) => void,
 }) {
     const [author, setAuthor] = useState('')
     const [title, setTitle] = useState('')
