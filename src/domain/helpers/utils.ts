@@ -14,3 +14,8 @@ export const updateFromList = <T extends { id: number | string }>(list: T[], id:
     newList[index] = { ...newList[index], ...data };
     return newList;
 }
+export const getToken = () => {
+    return window.localStorage.getItem('token')
+}
+
+export const delay = (time: number) => new Promise(resolve => setTimeout(resolve, time))

@@ -7,12 +7,13 @@ import { toast } from 'react-toastify'
 import bgImage from "../assets/bgCard.png";
 import { useBlogs } from '../hooks/useBlogs'
 import { IBlog } from '../domain/schema/entities'
+import { useLoading } from '../hooks/useNotification'
+import { delay } from '../hooks/useResource'
 
 const HomePage = () => {
-    const {loading } = useContext(SesionContext)
+    const { loading, success, set } = useLoading()
     //const { load, state: _blogs } = blogs
-    const {blogs, load, remove, like} = useBlogs()
-    const [_, setLoading] = loading
+    const { blogs, load, remove, like } = useBlogs()
     const navigate = useNavigate()
     useEffect(() => {
         const userID = window.localStorage.getItem('userID')
@@ -20,15 +21,14 @@ const HomePage = () => {
         if (blogs.length === 0) loadBlogs(userID as string)
     }, [])
     const loadBlogs = async (userID: string) => {
-        setLoading(true)
-        await load(userID)
-        setLoading(false)
-        toast.info('Se han cargado los blogs', {position: 'top-right'})
+        await loading(async () => await load(userID))
+        success({
+            message: 'Se han cargado los blogs'
+        })
     }
     const deleteHandler = async (id: string) => {
-        setLoading(true)
         await remove(id)
-        setLoading(false)
+
     }
     const likeHandler = async (id: string, data: IBlog) => {
         await like(id, data)
@@ -36,17 +36,17 @@ const HomePage = () => {
     return (
         <div className='w-full grid grid-cols-3 gap-4'>
             {
-                (blogs as Blog[]).map(blog => 
-                <BlogCard 
-                    key={blog.id}  
-                    blog={blog}
-                    date='2024-01-01'
-                    image={bgImage}
-                    summary='lorem ipsum'
-                    onDelete={deleteHandler}
-                    onLike={likeHandler}
-                    
-                />)
+                (blogs as Blog[]).map(blog =>
+                    <BlogCard
+                        key={blog.id}
+                        blog={blog}
+                        date='2024-01-01'
+                        image={bgImage}
+                        summary='lorem ipsum'
+                        onDelete={deleteHandler}
+                        onLike={likeHandler}
+
+                    />)
             }
         </div>
     )

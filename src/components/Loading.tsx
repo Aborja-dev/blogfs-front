@@ -1,9 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import logo from './../assets/react.svg'
-import { SesionContext } from '../context/Sesion/context'
-const Loading = ({ children }) => {
-    const [loading] = useContext(SesionContext).loading
-    if (!loading) return (<>{children}</>)
+import { useLoading } from '../hooks/useNotification'
+const Loading = ({ children }: { children: React.ReactNode }) => {
+    const { isLoading } = useLoading()
+    console.log(isLoading);
+    
+    if (!isLoading) return (<>{children}</>)
     return (
         <div className='flex-col gap-5 bg-gray-500/30 w-full h-screen flex justify-center items-center overflow-y-hidden absolute z-50'>
             <div className='absolute flex w-full h-screen justify-center items-center gap-5 flex-col'>
