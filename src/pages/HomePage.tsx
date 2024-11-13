@@ -18,10 +18,15 @@ const HomePage = () => {
         if (blogs.length === 0) loadBlogs(userID as string)
     }, [])
     const loadBlogs = async (userID: string) => {
-        await loading(async () => await load(userID))
-        success({
-            message: 'Se han cargado los blogs'
-        })
+        loading(async () => await load(userID))
+            .then(result => {
+                if (result) {
+                    success({
+                        message: 'Se han cargado los blogs'
+                    })
+                }
+            }
+            )
     }
     const deleteHandler = async (id: string) => {
         await loading(async () => await remove(id))

@@ -18,7 +18,7 @@ export class ApiResource<T> {
         })
         return await response.data
     }
-    async create(data: T): Promise<T> {
+    async create<C>(data: C): Promise<T> {
         const response = await axios.post(this.url, data, {
             headers: this.configHeaders()
         })
@@ -85,7 +85,7 @@ export class ApiResourceStub<T> {
 export class PrivateResource<T> extends ApiResource<T> {
     public token: string
     constructor(url: string) {
-        super(url)
+        super(url)        
         this.token = getToken() as string
     }
     configHeaders() {

@@ -7,6 +7,7 @@ export const blogsReducer = (state: IBlog[], action: IAction) => {
         case 'LOAD':
             return action.payload
         case 'ADD':
+            console.log([...state, action.payload])
             return [...state, action.payload]
         case 'DELETE':
             return removeFromList(state, action.payload as string |number)

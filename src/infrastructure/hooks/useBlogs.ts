@@ -1,14 +1,16 @@
 import { useContext } from "react"
-import { GlobalContext } from "../../context/global/context"
-import { ApiResourceStub } from "../../domain/clases/api-resource"
+import { ApiResourceStub, PrivateResource } from "../../domain/clases/api-resource"
 import { IBlog } from "../../domain/schema/entities"
 import { IAction } from "../../domain/schema/types"
-const request = new ApiResourceStub<IBlog>('http://localhost:3003/blogs')
+import { GlobalContext } from "../context/global/context"
+//const request = new ApiResourceStub<IBlog>('http://localhost:3003/blogs')
+const request = new PrivateResource<IBlog>('http://localhost:3003/api/blogs')
 export const useBlogs = () => {
     const context = useContext(GlobalContext)
     if (!context) throw new Error('no se puede acceder al contexto')
     const { set: dispatch, value } = context.blogs
     const load = async (id: string) => {
+        console.trace()
         const blogs = await request.getAll(id)
         const action: IAction = { type: 'LOAD', payload: blogs }
         dispatch(action)
@@ -30,7 +32,7 @@ export const useBlogs = () => {
      }
     return {
         blogs: value,
-        load,
+        load,   
         remove,
         like,
         add

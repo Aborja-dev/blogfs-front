@@ -6,16 +6,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { router } from './router'; 
-import GlobalProvider from './context/global/Provider';
-
-
+import GlobalProvider from './infrastructure/context/global/Provider';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <>
     <GlobalProvider>
-
       <RouterProvider router={router} />
-
     </GlobalProvider>
-  </StrictMode>,
+  </>,
 )

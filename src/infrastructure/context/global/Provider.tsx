@@ -1,20 +1,21 @@
-import React, { useReducer, useState } from 'react'
-import { blogsReducer } from '../../domain/reducer/resourceReducer'
-import { GlobalContext } from './context'
-import { IAction } from '../../domain/schema/types'
+import { useReducer, useState } from "react"
+import { blogsReducer } from "../../../domain/reducer/resourceReducer"
+import { IAction } from "../../../domain/schema/types"
+import { GlobalContext } from "./context"
+
 
 const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
     const [state, dispatch] = useReducer(blogsReducer, [] as never)
-    const [loading, setLoading] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)   
     return (
         <GlobalContext.Provider value={{
             blogs: {
                 value: state,
-                set: (action) => { dispatch(action as IAction) }
+                set: (action: IAction) => { dispatch(action as IAction) }
             },
             loading: {
                 value: loading,
-                set: (newValue) => { 
+                set: (newValue: boolean) => { 
                     setLoading(newValue as boolean) 
                 }
             },
