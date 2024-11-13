@@ -1,4 +1,3 @@
-import React from 'react'
 import { IBlog } from '../domain/schema/entities'
 import { DeleteAction, LikeAction } from '../domain/schema/blogActions'
 import ButtonComponent from './Button'

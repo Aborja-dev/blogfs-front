@@ -13,7 +13,7 @@ export const useLoading = () => {
         isRunning = true;
         set(true)
         try {
-            await delay(2000); // Simulación de un tiempo de carga
+            //await delay(2000); // Simulación de un tiempo de carga
             await cb();
             return true
         } catch (error) {

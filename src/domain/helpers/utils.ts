@@ -14,8 +14,18 @@ export const updateFromList = <T extends { id: number | string }>(list: T[], id:
     newList[index] = { ...newList[index], ...data };
     return newList;
 }
+
+export function removeQuotes(text: string) {
+    return text.replace(/['"]/g, '');
+}
+
 export const getToken = () => {
     return window.localStorage.getItem('token')
 }
+
+export const saveToken = (token: string) => {
+    window.localStorage.setItem('token', token)
+}
+
 
 export const delay = (time: number) => new Promise(resolve => setTimeout(resolve, time))

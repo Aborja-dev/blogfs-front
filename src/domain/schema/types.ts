@@ -2,7 +2,7 @@ import { IBlog, ISesion } from "./entities"
 
 export interface ForContext {
     blogs: ContextPart<IBlog[]>
-    sesion: ContextPart<ISesion>
+    sesion: ContextPart<ISesion | null>
     loading: ContextPart<boolean>
 }
 export interface ContextPart<T> {
@@ -15,3 +15,5 @@ export interface IAction {
 }
 
 export type ResourceActionType = 'LOAD' | 'ADD' | 'DELETE' | 'UPDATE' | 'CLEAN'
+
+export type SesionStateType = 'DEFAULT'  | 'EXPIRED' | 'LOGGED'

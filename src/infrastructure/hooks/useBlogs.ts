@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { PrivateResource } from "../../domain/clases/api-resource"
+import { ApiResourceStub, PrivateResource } from "../../domain/clases/api-resource"
 import { IBlog } from "../../domain/schema/entities"
 import { IAction } from "../../domain/schema/types"
 import { GlobalContext } from "../context/global/context"
@@ -10,7 +10,6 @@ export const useBlogs = () => {
     if (!context) throw new Error('no se puede acceder al contexto')
     const { set: dispatch, value } = context.blogs
     const load = async (id: string) => {
-        console.trace()
         const blogs = await request.getAll(id)
         const action: IAction = { type: 'LOAD', payload: blogs }
         dispatch(action)

@@ -9,9 +9,9 @@ import { router } from './router';
 import GlobalProvider from './infrastructure/context/global/Provider';
 
 createRoot(document.getElementById('root')!).render(
-  <>
+  <StrictMode>
     <GlobalProvider>
       <RouterProvider router={router} />
     </GlobalProvider>
-  </>,
+  </StrictMode>,
 )

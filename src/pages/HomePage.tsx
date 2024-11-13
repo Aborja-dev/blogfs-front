@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BlogCard } from '../ui/cards/BlogCard'
-import bgImage from "../assets/bgCard.png";
 import { IBlog } from '../domain/schema/entities'
 import { useLoading } from '../infrastructure/hooks/useNotification';
 import { useBlogs } from '../infrastructure/hooks/useBlogs';
@@ -30,7 +28,7 @@ const HomePage = () => {
             )
     }
     const deleteHandler = async (id: string) => {
-        await loading(async () => await remove(id))
+        await remove(id)
         success({
             message: 'se ha eliminado el blog'
         })
