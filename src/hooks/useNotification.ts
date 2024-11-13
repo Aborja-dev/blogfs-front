@@ -21,7 +21,6 @@ export const useLoading = () => {
         isLoading: value,
         success,
         loading,
-        error,
-        set
+        error
     }
 }

@@ -1,17 +1,15 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SesionContext } from '../context/Sesion/context'
 import { Blog } from '../schema/types'
 import { BlogCard } from '../ui/cards/BlogCard'
-import { toast } from 'react-toastify'
 import bgImage from "../assets/bgCard.png";
 import { useBlogs } from '../hooks/useBlogs'
 import { IBlog } from '../domain/schema/entities'
 import { useLoading } from '../hooks/useNotification'
-import { delay } from '../hooks/useResource'
+
 
 const HomePage = () => {
-    const { loading, success, set } = useLoading()
+    const { loading, success } = useLoading()
     //const { load, state: _blogs } = blogs
     const { blogs, load, remove, like } = useBlogs()
     const navigate = useNavigate()
@@ -27,8 +25,10 @@ const HomePage = () => {
         })
     }
     const deleteHandler = async (id: string) => {
-        await remove(id)
-
+        await loading(async () => await remove(id))
+        success({
+            message: 'se ha eliminado el blog'
+        })
     }
     const likeHandler = async (id: string, data: IBlog) => {
         await like(id, data)

@@ -1,26 +1,11 @@
 {
   "blogs": [
     {
-      "id": "67330d75ced89b40a8cf14ad",
-      "title": "vue",
-      "author": "sadasd",
-      "url": "xzczxc",
-      "likes": 10,
-      "user": "6729b3af9ebb6007c3cf96e5"
-    },
-    {
-      "id": "5a91",
+      "id": "27d4",
       "author": "Expl0r3r@2024",
       "title": "CuriousExplorer21",
-      "likes": 12,
-      "url": "sadasd"
-    },
-    {
-      "id": "b7b0",
-      "author": "asdasd",
-      "title": "w2qe",
-      "url": "CuriousExplorer21",
-      "likes": 4
+      "url": "sadasd",
+      "likes": 0
     }
   ]
 }
