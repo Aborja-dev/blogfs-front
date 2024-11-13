@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ApiResourceStub, PrivateResource } from "../../domain/clases/api-resource"
+import { PrivateResource } from "../../domain/clases/api-resource"
 import { IBlog } from "../../domain/schema/entities"
 import { IAction } from "../../domain/schema/types"
 import { GlobalContext } from "../context/global/context"

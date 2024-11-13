@@ -5,6 +5,7 @@ import bgImage from "../assets/bgCard.png";
 import { IBlog } from '../domain/schema/entities'
 import { useLoading } from '../infrastructure/hooks/useNotification';
 import { useBlogs } from '../infrastructure/hooks/useBlogs';
+import BlogItem from '../ui/BlogItem';
 
 
 
@@ -38,20 +39,19 @@ const HomePage = () => {
         await like(id, data)
     }
     return (
-        <div className='w-full grid grid-cols-3 gap-4'>
+        <div className='w-full'>
+            <ul className='space-y-5'>
             {
                 (blogs as IBlog[]).map(blog =>
-                    <BlogCard
+                    <BlogItem
                         key={blog.id}
                         blog={blog}
-                        date='2024-01-01'
-                        image={bgImage}
-                        summary='lorem ipsum'
                         onDelete={deleteHandler}
                         onLike={likeHandler}
 
                     />)
             }
+            </ul>
         </div>
     )
 }
