@@ -14,6 +14,10 @@ export const useBlogs = () => {
         const action: IAction = { type: 'LOAD', payload: blogs }
         dispatch(action)
     }
+    const loadBlogs = async (blogs: IBlog[]) => { 
+        const action: IAction = { type: 'LOAD', payload: blogs }
+        dispatch(action)
+     }
     const remove = async (id: string) => {
         await request.remove(id)
         const action: IAction = { type: 'DELETE', payload: id }
@@ -34,6 +38,7 @@ export const useBlogs = () => {
         load,   
         remove,
         like,
-        add
+        add,
+        loadBlogs
     }
 }

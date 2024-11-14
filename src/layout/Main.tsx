@@ -8,7 +8,7 @@ const Main = ({children}: {children?: React.ReactNode}) => {
       <Loading>
         <div className="w-full h-full grid place-items-center">
           <div className='my-12'>
-            <Outlet />
+          {children}
           </div>
           <ToastContainer autoClose={1500} />
         </div>

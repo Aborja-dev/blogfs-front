@@ -4,15 +4,30 @@ import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import PrivateLayout from "../layout/private/Private";
 import CreatePage from "../pages/create/CreatePage";
+import { AuthLoader } from "../pages/Home/loader";
+import BlogsPage from "../pages/blogs/page";
+import { BlogLoader } from "../pages/blogs/loader";
+import ErrorPage from "../pages/not-found";
+
 
 export const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage />,
     element: <Navigate to="/home" />,
   },
   {
     path: "/home",
-    element: <PrivateLayout><HomePage /></PrivateLayout>,
+    loader: AuthLoader,
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: 'blogs',
+        loader: BlogLoader,
+        element: <BlogsPage />
+      }
+    ],
   },
   {
     path: '/create',
