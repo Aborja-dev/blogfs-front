@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useLoading } from '../../infrastructure/hooks/useNotification'
 import { useBlogs } from '../../infrastructure/hooks/useBlogs'
-import { useLoaderData, useNavigate } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom'
 import { IBlog } from '../../domain/schema/entities'
 import BlogItem from '../../ui/BlogItem'
 
 const BlogsPage = () => {
     const { success } = useLoading()
     const { blogs, loadBlogs , remove, like } = useBlogs()
-    
     const _blogs = useLoaderData() as IBlog[];
     useEffect(() => {
         loadBlogs(_blogs)
