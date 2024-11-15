@@ -5,43 +5,53 @@
       "author": "Expl0r3r@2024",
       "title": "CuriousExplorer21",
       "url": "sadasd",
-      "likes": 6
+      "likes": 8
     },
     {
       "id": "6f32",
       "author": "Expl0r3r@2024",
       "title": "CuriousExplorer21",
       "url": "sadasd",
-      "likes": 12
+      "likes": 14
     }
   ],
-  "api": {
-    "users": {
-      "login": {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiQ3VyaW91c0V4cGxvcmVyMjEiLCJpZCI6IjY3MjliM2FmOWViYjYwMDdjM2NmOTZlNSJ9LCJpYXQiOjE3MzE0NDMzNDF9.aHfhEIX0Jx4xw32tcOGLi0M7lmDoZwtjR183y7rAkh0",
-        "id": "6729b3af9ebb6007c3cf96e5",
-        "name": "Alex Johnson",
-        "blogs": [
-          {
-            "_id": "67330d75ced89b40a8cf14ad",
-            "title": "vue",
-            "author": "sadasd",
-            "url": "xzczxc",
-            "user": "6729b3af9ebb6007c3cf96e5",
-            "__v": 0,
-            "likes": null
-          },
-          {
-            "_id": "6733179f93973be590040cec",
-            "title": "CuriousExplorer21",
-            "author": "Expl0r3r@2024",
-            "url": "xzczxc",
-            "user": "6729b3af9ebb6007c3cf96e5",
-            "__v": 0,
-            "likes": 5
-          }
-        ]
-      }
+  "users": [
+    {
+      "id": "6729b3af9ebb6007c3cf96e5",
+      "username": "CuriousExplorer21",
+      "name": "Alex Johnson",
+      "passwordHash": "Expl0r3r@2024"
+    },
+    {
+      "id": "6729b3af9ebb6007c3cf96e6",
+      "username": "TechSage",
+      "name": "Samantha Blake",
+      "passwordHash": "T3chS@g3_2024"
+    },
+    {
+      "id": "6729b3af9ebb6007c3cf96e7",
+      "username": "CodeMaster",
+      "name": "Liam Anderson",
+      "passwordHash": "C0d3M@st3r!"
+    },
+    {
+      "id": "6729b3af9ebb6007c3cf96e8",
+      "username": "PixelWizard",
+      "name": "Isabella Rivera",
+      "passwordHash": "Pix3lW1z@rd2024"
+    },
+    {
+      "id": "6729b3af9ebb6007c3cf96e9",
+      "username": "QuantumThinker",
+      "name": "Michael Chen",
+      "passwordHash": "Qu@ntum2024!"
+    },
+    {
+      "id": "5f37",
+      "name": "Mariana",
+      "password": "m4r1an4",
+      "username": "asdf1234",
+      "passwordHash": "m4r1an4"
     }
-  }
+  ]
 }

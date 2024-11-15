@@ -1,6 +1,5 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Main from "../layout/Main";
-import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import PrivateLayout from "../layout/private/Private";
 import CreatePage from "../pages/create/CreatePage";
@@ -10,6 +9,8 @@ import { BlogLoader } from "../pages/blogs/loader";
 import ErrorPage from "../pages/not-found";
 import { UserLoader } from "../pages/users/loader";
 import UsersPage from "../pages/users/page";
+import HomePage from "../pages/Home/page";
+import CreateUserPage from "../pages/users/create/page";
 
 
 export const router = createBrowserRouter([
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
         path: 'users',
         loader: UserLoader,
         element: <UsersPage />
+      },
+      {
+        path: 'users/create',
+        element: <CreateUserPage />
       }
     ],
   },

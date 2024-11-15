@@ -3,8 +3,8 @@ import { ApiResourceStub, PrivateResource } from "../../domain/clases/api-resour
 import { IBlog } from "../../domain/schema/entities"
 import { IAction } from "../../domain/schema/types"
 import { GlobalContext } from "../context/global/context"
-//const request = new ApiResourceStub<IBlog>('http://localhost:3003/blogs')
-const request = new PrivateResource<IBlog>('http://localhost:3003/api/blogs')
+const request = new ApiResourceStub<IBlog>('http://localhost:3003/blogs')
+//const request = new PrivateResource<IBlog>('http://localhost:3003/api/blogs')
 export const useBlogs = () => {
     const context = useContext(GlobalContext)
     if (!context) throw new Error('no se puede acceder al contexto')

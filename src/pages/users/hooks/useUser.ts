@@ -1,10 +1,10 @@
 import { useContext } from "react"
 import { GlobalContext } from "../../../infrastructure/context/global/context"
 import { IUser } from "../../../domain/schema/users/types"
-import { PrivateResource } from "../../../domain/clases/api-resource"
+import { ApiResourceStub, PrivateResource } from "../../../domain/clases/api-resource"
 import { IAction } from "../../../domain/schema/types"
-//const request = new ApiResourceStub<IBlog>('http://localhost:3003/blogs')
-const request = new PrivateResource<IUser>('http://localhost:3003/api/users')
+const request = new ApiResourceStub<IUser>('http://localhost:3003/users')
+//const request = new PrivateResource<IUser>('http://localhost:3003/api/users')
 export const useUser = () => {
     const context = useContext(GlobalContext)
     if (!context) throw new Error('no se puede acceder al contexto')

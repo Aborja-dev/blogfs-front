@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom'
 import { useUser } from './hooks/useUser'
 import { IUser } from '../../domain/schema/users/types'
 import Item from './components/Item'
+import ButtonComponent from '../../ui/Button'
 
 const UsersPage = () => {
     const { success } = useLoading()
@@ -20,6 +21,11 @@ const UsersPage = () => {
     }
     return (
         <div className='w-full'>
+            <div>
+                <ButtonComponent.Link to='create'>
+                    Crear nuevo usuario
+                </ButtonComponent.Link>
+            </div>
             <ul className='space-y-5'>
             {
                 (users).map(user => {

@@ -3,7 +3,7 @@ import Header from '../../ui/Header'
 import { ToastContainer } from 'react-toastify'
 import Loading from '../../infrastructure/components/Loading'
 import { Outlet } from 'react-router-dom'
-const PrivateLayout = () => {
+const HomePage = () => {
     return (
         <main className='w-full min-h-screen bg-gradient-to-bl from-blue-950 to-blue-400'>
             <Loading>
@@ -19,4 +19,4 @@ const PrivateLayout = () => {
     )
 }
 
-export default PrivateLayout
+export default HomePage

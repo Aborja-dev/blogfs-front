@@ -17,6 +17,7 @@ const ButtonComponent = ({children, onClick, status = 'DEFAULT', ...props}: {
         className={clsx(
             `w-full rounded-lg  py-1.5 px-3 text-sm/6 text-white`, 
             status == 'LOADING' && 'pointer-events-none opacity-50',
+            'hover:brightness-125',
             props.className ?? 'text-gray-500 bg-white/5'
             )}>
             {children}
@@ -54,7 +55,8 @@ ButtonComponent.Link = ({children, to, ...props}: {
         {...props}
         className={clsx(
             `w-full rounded-lg  py-1.5 px-3 text-sm/6 `, 
-            props.className ?? 'text-gray-500 bg-white/5'
+            props.className ?? 'text-white bg-white/5',
+            'hover:bg-gray-600'
             )}>
             {children}
         </Link>

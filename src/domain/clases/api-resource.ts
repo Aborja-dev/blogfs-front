@@ -47,8 +47,9 @@ export class ApiResourceStub<T> {
     constructor(url: string) {
         this.url = url
     }
-    async getAll(id: string): Promise<T[]> {
-        const response = await axios.get(`${this.url}`, {
+    async getAll(id?: string): Promise<T[]> {
+        const url = id ? `${this.url}/${id}` : this.url
+        const response = await axios.get(`${url}`, {
             headers: this.configHeaders()
         })
         return await response.data
