@@ -3,14 +3,16 @@ import ButtonComponent from '../../../ui/Button'
 import FormCard from '../../../ui/cards/FormCard'
 import FieldComponent from '../../../ui/Field'
 import { FCreateUser } from '../../../domain/schema/users/formTypes'
+import { IUser } from '../../../domain/schema/users/types'
 
 
-export function CreateUserForm({ onSubmit }: {
+export function CreateUserForm({ onSubmit, defaultValue }: {
     onSubmit: (data: FCreateUser) => void,
+    defaultValue?: IUser
 }) {
-    const [name, setName] = useState('')
-    const [password, setPassword] = useState('')
-    const [username, setUsername] = useState('')
+    const [name, setName] = useState( defaultValue?.name ?? '')
+    const [password, setPassword] = useState(defaultValue?.passwordHash ?? '')
+    const [username, setUsername] = useState(defaultValue?.username ?? '')
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         onSubmit({ name, password, username })

@@ -45,13 +45,6 @@
       "username": "QuantumThinker",
       "name": "Michael Chen",
       "passwordHash": "Qu@ntum2024!"
-    },
-    {
-      "id": "5f37",
-      "name": "Mariana",
-      "password": "m4r1an4",
-      "username": "asdf1234",
-      "passwordHash": "m4r1an4"
     }
   ]
 }

@@ -1,14 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useLoading } from '../../infrastructure/hooks/useNotification'
 import { useLoaderData } from 'react-router-dom'
 import { useUser } from './hooks/useUser'
 import { IUser } from '../../domain/schema/users/types'
 import Item from './components/Item'
 import ButtonComponent from '../../ui/Button'
+import { CreateUserForm } from '../../infrastructure/components/forms/CreateUser'
 
 const UsersPage = () => {
     const { success } = useLoading()
-    const { users, load , remove} = useUser()
+    const { users, load, remove } = useUser()
+    const [user, setUser] = useState<any>(null)
     const _users = useLoaderData() as IUser[];
     useEffect(() => {
         load(_users)
@@ -27,14 +29,18 @@ const UsersPage = () => {
                 </ButtonComponent.Link>
             </div>
             <ul className='space-y-5'>
-            {
-                (users).map(user => {
-                    return (
-                        <Item key={user.id} item={user} onDelete={deleteHandler} onEdit={() => {}} />
-                    )
-                })
-            }
+                {
+                    (users).map(user => {
+                        return (
+                            <Item key={user.id} item={user} onDelete={deleteHandler} onEdit={(id, user) => { setUser(user) }} />
+                        )
+                    })
+                }
             </ul>
+            {user
+                ? <CreateUserForm defaultValue={user} onSubmit={() => { }} />
+                : null
+            }
         </div>
     )
 }

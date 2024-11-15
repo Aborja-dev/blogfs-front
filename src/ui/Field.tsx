@@ -2,9 +2,11 @@ import { Input, Label, Field } from '@headlessui/react'
 import clsx from 'clsx'
 
 const FieldComponent = ({value, label, setValue}: 
-    {value: string, 
+    {   value: string, 
         label: string, 
-        setValue: (value: string) => void}) => {
+        setValue: (value: string) => void
+        
+    }) => {
     return (
         <>
         <Field>
