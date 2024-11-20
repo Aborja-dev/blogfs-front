@@ -1,4 +1,3 @@
-import React from 'react'
 import { IUser } from '../../../domain/schema/users/types'
 import { DeleteUser, SelectUser } from '../../../domain/schema/users/actions'
 import ButtonComponent from '../../../ui/Button'

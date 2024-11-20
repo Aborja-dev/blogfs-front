@@ -1,4 +1,3 @@
-import { removeQuotes } from "../helpers/utils"
 
 export class LocalStorage {
     tokenKey: string
@@ -11,7 +10,7 @@ export class LocalStorage {
         
         window.localStorage.setItem(this.tokenKey, token)
     } 
-    get token (): any |  null {
+    get token (): string |  null {
         const object = window.localStorage.getItem(this.tokenKey) ?? null
         if (!object) return null
         return JSON.parse(object)

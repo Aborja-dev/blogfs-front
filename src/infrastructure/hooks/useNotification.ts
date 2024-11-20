@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { toast } from "react-toastify"
-import { delay } from "../../domain/helpers/utils"
 import { GlobalContext } from "../context/global/context"
 let isRunning = false;
 export const useLoading = () => {

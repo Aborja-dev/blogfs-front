@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { IUser } from '../../../domain/schema/users/types';
 
 const Details = ({user}:{

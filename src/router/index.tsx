@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Main from "../layout/Main";
 import LoginPage from "../pages/LoginPage";
-import PrivateLayout from "../layout/private/Private";
 import CreatePage from "../pages/create/CreatePage";
 import { AuthLoader } from "../pages/Home/loader";
 import BlogsPage from "../pages/blogs/page";

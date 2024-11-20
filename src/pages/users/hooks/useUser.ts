@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { GlobalContext } from "../../../infrastructure/context/global/context"
 import { IUser } from "../../../domain/schema/users/types"
-import { ApiResourceStub, PrivateResource } from "../../../domain/clases/api-resource"
+import { PrivateResource } from "../../../domain/clases/api-resource"
 import { IAction } from "../../../domain/schema/types"
 // const request = new ApiResourceStub<IUser>('http://localhost:3003/users')
 const request = new PrivateResource<IUser>('http://localhost:3003/api/users')

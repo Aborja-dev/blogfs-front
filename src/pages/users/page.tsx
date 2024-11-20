@@ -5,7 +5,6 @@ import { useUser } from './hooks/useUser'
 import { IUser } from '../../domain/schema/users/types'
 import Item from './components/Item'
 import ButtonComponent from '../../ui/Button'
-import { CreateUserForm } from '../../infrastructure/components/forms/CreateUser'
 import Details from './components/Details'
 
 const UsersPage = () => {

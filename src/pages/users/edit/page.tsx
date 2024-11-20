@@ -1,7 +1,5 @@
-import React from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import { IUser } from '../../../domain/schema/users/types'
-import { useLoading } from '../../../infrastructure/hooks/useNotification'
 import { useUser } from '../hooks/useUser'
 import { Button } from '@headlessui/react'
 import { CreateUserForm } from '../../../infrastructure/components/forms/CreateUser'

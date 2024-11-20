@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 import Loading from '../infrastructure/components/Loading';
-import { Outlet } from 'react-router-dom';
+
 
 const Main = ({children}: {children?: React.ReactNode}) => {
   return (
