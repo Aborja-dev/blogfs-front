@@ -13,8 +13,14 @@ export class ApiResource<T> {
         })
         return await response.data
     }
-    async getOne(id: string): Promise<T> {
+    async getDetail(id: string): Promise<T> {
         const response = await axios.get(`${this.url}/detail/${id}`, {
+            headers: this.configHeaders()
+        })
+        return await response.data
+    }
+    async getOne(id: string): Promise<T> {
+        const response = await axios.get(`${this.url}/${id}`, {
             headers: this.configHeaders()
         })
         return await response.data
