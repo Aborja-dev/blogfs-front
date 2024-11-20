@@ -6,11 +6,12 @@ import { IUser } from '../../domain/schema/users/types'
 import Item from './components/Item'
 import ButtonComponent from '../../ui/Button'
 import { CreateUserForm } from '../../infrastructure/components/forms/CreateUser'
+import Details from './components/Details'
 
 const UsersPage = () => {
     const { success } = useLoading()
     const { users, load, remove } = useUser()
-    const [user, setUser] = useState<any>(null)
+    const [selectedUser, setSelectedUser] = useState<IUser['id'] | null>(null)
     const _users = useLoaderData() as IUser[];
     useEffect(() => {
         load(_users)
@@ -32,15 +33,23 @@ const UsersPage = () => {
                 {
                     (users).map(user => {
                         return (
-                            <Item key={user.id} item={user} onDelete={deleteHandler} onEdit={(id, user) => { setUser(user) }} />
+                            <>
+                                <Item 
+                                onSelect={() => {
+                                    if(user.id === selectedUser) setSelectedUser(null)
+                                    else {setSelectedUser(user.id)}
+                                }} 
+                                key={user.id} item={user} 
+                                onDelete={deleteHandler} />
+                                {
+                                    user.id === selectedUser && <Details user={user} />
+                                }
+                            </>
+                            
                         )
                     })
                 }
             </ul>
-            {user
-                ? <CreateUserForm defaultValue={user} onSubmit={() => { }} />
-                : null
-            }
         </div>
     )
 }

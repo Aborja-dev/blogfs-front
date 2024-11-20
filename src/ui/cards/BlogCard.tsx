@@ -4,6 +4,8 @@ import Title from '../typhography/Title'
 import Text from '../typhography/Text'
 import ButtonComponent from '../Button'
 import { IBlog } from '../../domain/schema/entities'
+import { useState } from 'react'
+import { Transition } from '@headlessui/react'
 
 export function BlogCard({
     blog,
@@ -11,23 +13,24 @@ export function BlogCard({
     date,
     image,
     onDelete,
-    onLike 
+    onDetailClick 
 }: {
     blog: IBlog,
     summary: string,
     date: string,
     image: string,
     onDelete: (id: string) => void,
-    onLike: (id: string, data: IBlog) => void
+    onDetailClick: (id: string) => void
 }) {
     const { title, author } = blog
-    // const [isHovered, setIsHovered] = useState(false)
+    const [isHovered, setIsHovered] = useState(false)
 
     return (
         <div
-            className="w-full max-w-md overflow-hidden bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
-        // onMouseEnter={() => setIsHovered(true)}
-        // onMouseLeave={() => setIsHovered(false)}
+        className="w-full max-w-md overflow-hidden bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => onDetailClick(blog.id)}
         >
             <BlogCard.Image src={image} alt={title} />
             <div className="p-6">
@@ -36,12 +39,6 @@ export function BlogCard({
                 <Text>{summary}</Text>
                 <div className="flex justify-between items-center">
                     <Text className='text-gray-500'>Sent on: {date}</Text>
-                    <ButtonComponent.Outline
-                        className='text-blue-500'
-                        onClick={() => onLike(blog.id, { ...blog, likes: blog.likes + 1 })}
-                    >
-                        Like
-                    </ButtonComponent.Outline>
                     {blog.likes}
                 </div>
             </div>
@@ -52,7 +49,7 @@ export function BlogCard({
                 >
                     Delete
                 </ButtonComponent>
-            </div>{/* 
+            </div>
             <Transition
                 show={isHovered}
                 enter="transition-opacity duration-300"
@@ -62,10 +59,10 @@ export function BlogCard({
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <p className="text-white text-lg font-semibold">View Details</p>
                 </div>
-            </Transition> */}
+            </Transition> 
         </div>
     )
 }

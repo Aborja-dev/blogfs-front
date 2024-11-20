@@ -10,6 +10,7 @@ export const updateFromList = <T extends { id: number | string }>(list: T[], id:
         // Retorna null si no se encuentra el elemento
         return null;
     }
+    debugger
     const newList = [...list];
     newList[index] = { ...newList[index], ...data };
     return newList;

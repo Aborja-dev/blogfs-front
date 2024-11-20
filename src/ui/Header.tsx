@@ -14,9 +14,6 @@ const Header = () => {
         </ButtonComponent.Link>
       </div >
       <div className='flex justify-end w-1/4 text-center items-center gap-4'>
-        <ButtonComponent.Link to={'/create'} className='text-white bg-white/30 max-w-32'>
-          Crear Blog
-        </ButtonComponent.Link>
         <ButtonComponent.Link to={'/login'} className='text-white bg-white/30 max-w-32' onClick={logout}>
           Logout
         </ButtonComponent.Link>

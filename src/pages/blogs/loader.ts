@@ -1,9 +1,8 @@
-import { PrivateResource } from "../../domain/clases/api-resource";
-import { IBlog } from "../../domain/schema/entities";
+
+import { requestBlog } from "../../service/api-gateway";
 
 export const BlogLoader = async() => {
-    const request = new PrivateResource<IBlog>('http://localhost:3003/blogs')
     const userID = window.localStorage.getItem('userID')
-    const blogs = await request.getAll()
+    const blogs = await requestBlog.getAll(userID)
     return blogs
 }

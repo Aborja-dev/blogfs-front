@@ -14,7 +14,7 @@ export class ApiResource<T> {
         return await response.data
     }
     async getOne(id: string): Promise<T> {
-        const response = await axios.get(`${this.url}/${id}`, {
+        const response = await axios.get(`${this.url}/detail/${id}`, {
             headers: this.configHeaders()
         })
         return await response.data
@@ -55,7 +55,7 @@ export class ApiResourceStub<T> {
         return await response.data
     }
     async getOne(id: string): Promise<T> {
-        const response = await axios.get(`${this.url}/${id}`, {
+        const response = await axios.get(`${this.url}/detail/${id}`, {
             headers: this.configHeaders()
         })
         return await response.data

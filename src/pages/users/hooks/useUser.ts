@@ -3,8 +3,8 @@ import { GlobalContext } from "../../../infrastructure/context/global/context"
 import { IUser } from "../../../domain/schema/users/types"
 import { ApiResourceStub, PrivateResource } from "../../../domain/clases/api-resource"
 import { IAction } from "../../../domain/schema/types"
-const request = new ApiResourceStub<IUser>('http://localhost:3003/users')
-//const request = new PrivateResource<IUser>('http://localhost:3003/api/users')
+// const request = new ApiResourceStub<IUser>('http://localhost:3003/users')
+const request = new PrivateResource<IUser>('http://localhost:3003/api/users')
 export const useUser = () => {
     const context = useContext(GlobalContext)
     if (!context) throw new Error('no se puede acceder al contexto')
@@ -23,7 +23,7 @@ export const useUser = () => {
         const action: IAction = { type: 'DELETE', payload: id }
         dispatch(action)
     }
-    const like = async (id: string, data: IUser) => {
+    const edit = async (id: string, data: IUser) => {
         await request.update(id, data)
         const action: IAction = { type: 'UPDATE', payload: { id, content: data } }
         dispatch(action)
@@ -37,8 +37,8 @@ export const useUser = () => {
         users: value,
         loadAsync,   
         remove,
-        like,
+        edit,
         add,
-        load
+        load,
     }
 }

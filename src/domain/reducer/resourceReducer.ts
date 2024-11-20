@@ -13,6 +13,8 @@ export const blogsReducer = (state: IBlog[], action: IAction) => {
             return removeFromList(state, action.payload as string |number)
         case 'UPDATE':
             { const {id, content} = action.payload as {id: string, content: IBlog}
+            console.log(updateFromList(state, id, content));
+            debugger
             return updateFromList(state, id, content) }
         case 'CLEAN':
             return []

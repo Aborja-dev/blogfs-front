@@ -11,6 +11,10 @@ import { UserLoader } from "../pages/users/loader";
 import UsersPage from "../pages/users/page";
 import HomePage from "../pages/Home/page";
 import CreateUserPage from "../pages/users/create/page";
+import { UserEditLoader } from "../pages/users/edit/loader";
+import EditPage from "../pages/users/edit/page";
+import { detailLoader } from "../pages/blogs/detail/loader";
+import DetailPage from "../pages/blogs/detail/page";
 
 
 export const router = createBrowserRouter([
@@ -23,12 +27,26 @@ export const router = createBrowserRouter([
     path: "/home",
     loader: AuthLoader,
     element: <HomePage />,
-    errorElement: <ErrorPage />,
+
     children: [
       {
         path: 'blogs',
-        loader: BlogLoader,
-        element: <BlogsPage />
+        children: [
+          {
+            index: true,
+            loader: BlogLoader,
+            element: <BlogsPage />
+          },
+          {
+            path: 'create',
+            element: <CreatePage />
+          },
+          {
+            path: ':id',
+            loader: detailLoader,
+            element: <DetailPage />
+          }
+        ]
       },
       {
         path: 'users',
@@ -38,12 +56,13 @@ export const router = createBrowserRouter([
       {
         path: 'users/create',
         element: <CreateUserPage />
+      },
+      {
+        path: 'users/edit/:id',
+        loader: UserEditLoader,
+        element: <EditPage />
       }
     ],
-  },
-  {
-    path: '/create',
-    element: <PrivateLayout><CreatePage /></PrivateLayout>
   },
   {
     path: "/login",

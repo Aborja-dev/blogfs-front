@@ -1,8 +1,6 @@
-import { PrivateResource } from "../../domain/clases/api-resource"
-import { IUser } from "../../domain/schema/users/types"
+import { requestBlog, requestUser } from "../../service/api-gateway"
 
 export const UserLoader = async() => {
-    const request = new PrivateResource<IUser>('http://localhost:3003/users')
-    const users = await request.getAll()
+    const users = await requestUser.getAll()
     return users
 }

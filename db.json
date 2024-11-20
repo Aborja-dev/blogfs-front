@@ -5,22 +5,23 @@
       "author": "Expl0r3r@2024",
       "title": "CuriousExplorer21",
       "url": "sadasd",
-      "likes": 8
+      "likes": 13
     },
     {
       "id": "6f32",
       "author": "Expl0r3r@2024",
       "title": "CuriousExplorer21",
       "url": "sadasd",
-      "likes": 14
+      "likes": 23
     }
   ],
   "users": [
     {
       "id": "6729b3af9ebb6007c3cf96e5",
-      "username": "CuriousExplorer21",
+      "username": "CuriousExplorer21aa",
       "name": "Alex Johnson",
-      "passwordHash": "Expl0r3r@2024"
+      "passwordHash": "Expl0r3r@2024saasd",
+      "password": "Expl0r3r@2024saasd"
     },
     {
       "id": "6729b3af9ebb6007c3cf96e6",
@@ -37,14 +38,9 @@
     {
       "id": "6729b3af9ebb6007c3cf96e8",
       "username": "PixelWizard",
-      "name": "Isabella Rivera",
-      "passwordHash": "Pix3lW1z@rd2024"
-    },
-    {
-      "id": "6729b3af9ebb6007c3cf96e9",
-      "username": "QuantumThinker",
-      "name": "Michael Chen",
-      "passwordHash": "Qu@ntum2024!"
+      "name": "Isabella",
+      "passwordHash": "Pix3lW1z@rd2024",
+      "password": "Pix3lW1z@rd2024sadas"
     }
   ]
 }

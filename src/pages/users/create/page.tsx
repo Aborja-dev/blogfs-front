@@ -17,7 +17,7 @@ const CreateUserPage = () => {
     }
     return (
         <div className='max-w-[350px] mx-auto'>
-            <CreateUserForm onSubmit={addNewBlog} />
+            <CreateUserForm title='Crear Nuevo Usuario' onSubmit={addNewBlog} />
             <Button className={clsx(`w-full  rounded-lg max-w-32 bg-white/30 py-1.5 px-3 text-sm/6 text-white`)} onClick={() => navigate(-1)}>
                 Regresar
             </Button>

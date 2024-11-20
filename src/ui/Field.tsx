@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input, Label, Field } from '@headlessui/react'
 import clsx from 'clsx'
 
-const FieldComponent = ({value, label, setValue}: 
+const FieldComponent = ({value, label, setValue, ...props}: 
     {   value: string, 
         label: string, 
-        setValue: (value: string) => void
+        setValue: (value: string) => void,
+        [key: string]: any
         
     }) => {
     return (
@@ -12,6 +14,7 @@ const FieldComponent = ({value, label, setValue}:
         <Field>
             <Label className="text-sm/6 font-medium text-white">{label}</Label>
             <Input
+                {...props}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 className={clsx(

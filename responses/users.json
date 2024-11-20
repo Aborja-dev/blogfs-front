@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+          "id": "6729b3af9ebb6007c3cf96e5",
+          "username": "CuriousExplorer21",
+          "name": "Alex Johnson",
+          "passwordHash": "Expl0r3r@2024"
+        },
+        {
+          "id": "6729b3af9ebb6007c3cf96e6",
+          "username": "TechSage",
+          "name": "Samantha Blake",
+          "passwordHash": "T3chS@g3_2024"
+        },
+        {
+          "id": "6729b3af9ebb6007c3cf96e7",
+          "username": "CodeMaster",
+          "name": "Liam Anderson",
+          "passwordHash": "C0d3M@st3r!"
+        },
+        {
+          "id": "6729b3af9ebb6007c3cf96e8",
+          "username": "PixelWizard",
+          "name": "Isabella Rivera",
+          "passwordHash": "Pix3lW1z@rd2024"
+        },
+        {
+          "id": "6729b3af9ebb6007c3cf96e9",
+          "username": "QuantumThinker",
+          "name": "Michael Chen",
+          "passwordHash": "Qu@ntum2024!"
+        }
+      ]
+}
